@@ -12,7 +12,15 @@ modules:
     # to be shared
     - path: modules
 
+    # Add a shared module repository located on GitHub. This repository
+    # can contain several modules.
+    - git:
+        url: https://github.com/goldmann/concreate-common-module.git
+        ref: master
+
   # Install selected modules (in order)
   install:
+    - name: jdk8
+    - name: user
     - name: apollo
 
