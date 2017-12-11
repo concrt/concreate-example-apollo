@@ -1,0 +1,18 @@
+schema_version: 1
+
+name: goldmann/apollo
+version: 1.7
+from: centos:7
+description: "Apollo 1.7 image"
+
+modules:
+  repositories:
+    # Add local modules located next to the image descriptor
+    # These modules are specific to the image we build and are not meant
+    # to be shared
+    - path: modules
+
+  # Install selected modules (in order)
+  install:
+    - name: apollo
+

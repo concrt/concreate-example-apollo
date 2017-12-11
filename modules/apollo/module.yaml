@@ -1,0 +1,33 @@
+schema_version: 1
+
+name: apollo
+version: 1.7.1
+description: "Module used to install Apache Apollo"
+
+# Defined artifacts that are used to build the image
+artifacts:
+  - name: apollo.tar.gz
+    url: http://ftp.ps.pl/pub/apache/activemq/activemq-apollo/1.7.1/apache-apollo-1.7.1-unix-distro.tar.gz
+
+modules:
+  repositories:
+    # Add a shared module repository located on GitHub. This repository
+    # can contain several modules.
+    - git:
+        url: https://github.com/goldmann/concreate-common-module.git
+        ref: master
+
+  # Install selected modules (in order)
+  install:
+    - name: jdk8
+    - name: user
+
+execute:
+  - script: install.sh
+  - script: broker.sh
+    user: 1000
+
+run:
+  cmd:
+    - "/home/user/broker/bin/apollo-broker"
+    - "run"
