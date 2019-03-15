@@ -1,6 +1,6 @@
 schema_version: 1
 
-name: goldmann/apollo
+name: cekit/example-apollo
 version: 1.7
 from: centos:7
 description: "Apollo 1.7 image"
